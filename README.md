@@ -54,3 +54,31 @@ An [npm](https://npmjs.com) package is provided for convenience as well. To inst
 
 ### License
 gitinspector is licensed under the *GNU GPL v3*. The gitinspector logo is partly based on the git logo; based on the work of Jason Long. The logo is licensed under the *Creative Commons Attribution 3.0 Unported License*.
+
+
+-----------------------------------------------
+支持PHP
+
+https://github.com/ejwa/gitinspector/issues/99
+
+里边有个zip包下载下来 在metrics.py:35行添加对应的代码
+
+```php
+[["php"], ["else", r"for\s+\(.*\)", r"foreach\s+\(.*\)", r"if\s+\(.*\)", r"case\s+\w+:",
+                                  "default:", r"while\s+\(.*\)"],
+                                ["assert", "break", "continue", "return"]],
+
+```
+
+
+使用命令
+gitinspector.py --file-types=php --format=html --timeline --list-file-types --timeline --responsibilities > aaa.html
+   
+
+gitinspector.py --file-types=php --format=html --timeline --list-file-types --timeline --responsibilities --since=2018-01-01 > aaa.html
+
+生成aaa.html到当前项目下
+
+需要说明的是参数使用 --timeline可以生效   -T不生效
+
+所以gitinspector.py -h 命令行中  指示的命令用全写,不用简写 -T  -L等参数使用就没有问题
